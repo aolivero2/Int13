@@ -5,6 +5,8 @@
  */
 package ejerciciosn;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SERVIDOR
@@ -28,24 +30,170 @@ public class Ejercicio13 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCantp = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtCantd = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 102));
+        jLabel1.setText("   AGENCIA DE VIAJES");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 250, 30));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("    Cantidad de personas:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 200, 30));
+
+        txtCantp.setBackground(new java.awt.Color(204, 153, 255));
+        txtCantp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantpActionPerformed(evt);
+            }
+        });
+        txtCantp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantpKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtCantp, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 60, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("   Total a pagar:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 140, 30));
+
+        txtTotal.setEditable(false);
+        txtTotal.setBackground(new java.awt.Color(204, 153, 255));
+        txtTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTotalKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, 40));
+
+        cmdCalcular.setBackground(new java.awt.Color(255, 153, 204));
+        cmdCalcular.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 80, 30));
+
+        cmdBorrar.setBackground(new java.awt.Color(255, 153, 255));
+        cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 80, 30));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Cantidad de días:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+
+        txtCantd.setBackground(new java.awt.Color(204, 153, 255));
+        txtCantd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantdKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtCantd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 60, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCantpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantpKeyTyped
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();    
+          } 
+    }//GEN-LAST:event_txtCantpKeyTyped
+
+    private void txtTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTotalKeyTyped
+        
+    }//GEN-LAST:event_txtTotalKeyTyped
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String totp;
+        double np,nd,op1,op2,saldf=0;
+        
+        if (txtCantd.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite el numero de dias","Error",JOptionPane.ERROR_MESSAGE);
+            txtCantd.requestFocusInWindow();
+        }
+        else if (txtCantp.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite la cantidad de personas","Error",JOptionPane.ERROR_MESSAGE);
+            txtCantp.requestFocusInWindow();
+        }
+        else{
+            np=Double.parseDouble(txtCantp.getText());
+            nd=Double.parseDouble(txtCantd.getText());
+            op1=(nd+np)*25000;
+            op2=(op1*0.12);
+            saldf=(op1+op2);
+        }
+        totp=String.valueOf(saldf);
+        txtTotal.setText(totp);
+        
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtCantd.setText("");
+        txtCantp.setText("");
+        txtTotal.setText("");
+        
+        txtCantp.requestFocusInWindow();
+        txtCantd.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtCantpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantpActionPerformed
+       
+    }//GEN-LAST:event_txtCantpActionPerformed
+
+    private void txtCantdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantdKeyTyped
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();    
+          } 
+    }//GEN-LAST:event_txtCantdKeyTyped
 
     /**
      * @param args the command line arguments
@@ -83,6 +231,16 @@ public class Ejercicio13 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCantd;
+    private javax.swing.JTextField txtCantp;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
